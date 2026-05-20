@@ -9,12 +9,12 @@ const globalForPrisma = global as unknown as {
   prisma: PrismaClient
 }
 
-const prisma =
+const dbClient =
   globalForPrisma.prisma ||
   new PrismaClient({
     adapter,
   })
 
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = dbClient
 
-export default prisma
+export default dbClient

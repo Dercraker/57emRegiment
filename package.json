@@ -10,9 +10,9 @@
     "lint": "eslint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit",
-    "prisma:migrate": "pnpm dlx prisma migrate dev --name init",
-    "prisma:generate": "prisma generate && prettier --write .",
-    "prisma:studio": "prisma studio",
+    "db:migrate": "pnpm dlx prisma migrate dev",
+    "db:generate": "prisma generate && prettier --write .",
+    "db:studio": "prisma studio",
     "postinstall": "prisma generate && prettier --write ."
   },
   "dependencies": {
