@@ -35,9 +35,12 @@ export const GetCurrentUser = async (): Promise<UserModel | null> => {
 export const GetRequiredUser = async (): Promise<UserModel> => {
   const user = await GetCurrentUser()
 
-  if (!user) {
+  if (!user)
     throw new AuthError("You must be authenticated to access this resource")
-  }
+
+  if (!user.id || !user.email)
+    throw new AuthError("Invalid session, please sign in again")
+
 
   return user
 }

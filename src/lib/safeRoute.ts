@@ -1,6 +1,6 @@
 import { createZodRoute } from "next-zod-route"
 import { NextResponse } from "next/server"
-import { AuthError } from "./auth/helper"
+import { AuthError, GetRequiredUser } from "./auth/helper"
 
 export class RouteError extends Error {
   status?: number
@@ -34,4 +34,9 @@ export const route = createZodRoute({
 
     return NextResponse.json({ message: e.message }, { status: 500 })
   },
+})
+
+export const authRoute = route.use(async ({ next }) => {
+  const user = await GetRequiredUser()
+  return next({ ctx: { user } })
 })
