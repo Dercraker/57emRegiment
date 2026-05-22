@@ -1,0 +1,11 @@
+model Location {
+  id   String       @id @default(uuid())
+  type LocationType
+
+  townId String
+  town   Town   @relation(fields: [townId], references: [id])
+
+  inventories Inventory[]
+
+  @@unique([townId, type])
+}

@@ -1,0 +1,20 @@
+model Transaction {
+  id       String          @id @default(uuid())
+  type     TransactionType
+  quantity Int
+  note     String?
+
+  itemId String
+  item   Item   @relation(fields: [itemId], references: [id])
+
+  fromInventoryId String?
+  fromInventory   Inventory? @relation("FromInventory", fields: [fromInventoryId], references: [id])
+
+  toInventoryId String?
+  toInventory   Inventory? @relation("ToInventory", fields: [toInventoryId], references: [id])
+
+  createdById String?
+  createdBy   User?    @relation(fields: [createdById], references: [id])
+
+  createdAt DateTime @default(now())
+}
