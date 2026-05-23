@@ -1,15 +1,19 @@
 model Session {
-	id String @id
-	user User @relation(fields: [userId], references: [id])
-	userId String
-	token String @unique
-	expiresAt DateTime @db.Timestamptz(3)
-	roles     String[]
-	ipAddress String?
-	userAgent String?
-	createdAt DateTime @db.Timestamptz(3)
-	updatedAt DateTime @db.Timestamptz(3)
-	@@map("session")
+	id        String   @id
+  expiresAt DateTime
+  token     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+	discordRoles     String[]
+
+  @@unique([token])
+  @@index([userId])
+  @@map("session")
 
 	@@schema("auth")
 }

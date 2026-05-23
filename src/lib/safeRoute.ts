@@ -1,6 +1,6 @@
 import { createZodRoute } from "next-zod-route"
 import { NextResponse } from "next/server"
-import { AuthError, GetRequiredUser } from "./auth/helper"
+import { AuthError, GetRequiredUser } from "./auth/authHelper"
 
 export class RouteError extends Error {
   status?: number

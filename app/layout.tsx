@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google"
 
+import { Footer } from "@/components/layout/footer"
+import { Header } from "@/components/layout/header"
 import "./globals.css"
 import { Providers } from "./providers"
 
@@ -25,7 +27,11 @@ export default function RootLayout({
       className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}
     >
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   )

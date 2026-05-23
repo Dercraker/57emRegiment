@@ -5,11 +5,10 @@ import { getQueryClient } from "@/lib/tanstack/getQueryClient"
 import { QueryClientProvider } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { NuqsAdapter } from "nuqs/adapters/next/app"
-import { PropsWithChildren, useState } from "react"
+import { PropsWithChildren } from "react"
 
 export const Providers = ({ children }: PropsWithChildren) => {
   const queryClient = getQueryClient()
-  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <ThemeProvider>
