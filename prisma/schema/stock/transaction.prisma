@@ -17,4 +17,5 @@ model Transaction {
   createdBy   User?    @relation(fields: [createdById], references: [id])
 
   createdAt DateTime @default(now())
+  @@schema("stock")
 }

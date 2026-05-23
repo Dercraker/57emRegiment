@@ -10,4 +10,5 @@ model Stock {
   updatedAt DateTime @updatedAt
 
   @@unique([itemId, inventoryId])
+  @@schema("stock")
 }

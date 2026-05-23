@@ -6,4 +6,5 @@ model Town {
   region   Region @relation(fields: [regionId], references: [id])
 
   locations Location[]
+  @@schema("stock")
 }

@@ -14,4 +14,6 @@ model Account {
 	createdAt DateTime @db.Timestamptz(3)
 	updatedAt DateTime @db.Timestamptz(3)
 	@@map("account")
+
+	@@schema("auth")
 }

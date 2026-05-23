@@ -3,4 +3,5 @@ model Region {
   name String @unique
 
   towns Town[]
+  @@schema("stock")
 }

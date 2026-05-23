@@ -5,6 +5,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+  schemas = ["auth", "stock"]
 }
 //TODO Update this
 enum Category {
@@ -17,30 +18,40 @@ enum Category {
   UNIFORM
   VEHICLE
   SHIPPABLE
+
+  @@schema("stock")
 }
 
 //TODO Update this
 enum SuperClass {
   MATERIAL
   MAGAZINE
+
+  @@schema("stock")
 }
 
 //TODO Update this
 enum Class {
   REFINED_MATERIAL
   RIFLE_AMMO
+  
+  @@schema("stock")
 }
 
 enum Faction {
   WARDEN
   COLONIAL
   NEUTRAL
+
+  @@schema("stock")
 }
 
 //TODO Update this
 enum LocationType {
   STORAGE_DEPOT
   SEAPORT
+
+  @@schema("stock")
 }
 
 
@@ -50,4 +61,6 @@ enum TransactionType {
   TRANSFER
   PRODUCTION
   LOSS
+  
+  @@schema("stock")
 }

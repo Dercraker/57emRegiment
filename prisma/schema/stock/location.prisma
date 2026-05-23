@@ -8,4 +8,5 @@ model Location {
   inventories Inventory[]
 
   @@unique([townId, type])
+  @@schema("stock")
 }
