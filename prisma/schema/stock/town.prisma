@@ -1,0 +1,10 @@
+model Town {
+  id   String @id @default(uuid())
+  name String @unique
+
+  regionId String
+  region   Region @relation(fields: [regionId], references: [id])
+
+  locations Location[]
+  @@schema("stock")
+}
