@@ -2,6 +2,6 @@ import context from "@/lib/prisma/dbContext"
 import { ItemId } from "@/models/stock/items.schema"
 import { ItemModel } from "prisma/generated/models"
 
-export const getItemById = async (item: ItemId): Promise<ItemModel | null> => {
-  return await context.item.findUnique({ where: { id: item.id } })
+export async function DeleteItemAsync({ id }: ItemId): Promise<ItemModel> {
+  return await context.item.delete({ where: { id } })
 }

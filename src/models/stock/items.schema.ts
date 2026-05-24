@@ -35,6 +35,17 @@ export const ItemSchema = z.object({
   attributes: z.record(z.string(), z.any()).optional(),
 })
 
+export const ItemIdFilterSchema = z.object({
+  id: z.uuid(),
+})
+
+export const ItemUpdateSchema = z.object({
+  id: ItemIdFilterSchema,
+  item: ItemSchema,
+})
+
 export type ItemsFilter = z.infer<typeof ItemsFilterSchema>
 export type FactionFilter = z.infer<typeof FactionEnum>
 export type ItemCreate = z.infer<typeof ItemSchema>
+export type ItemId = z.infer<typeof ItemIdFilterSchema>
+export type ItemUpdate = z.infer<typeof ItemUpdateSchema>
