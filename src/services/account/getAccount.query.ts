@@ -11,6 +11,9 @@ export const getAccountByUserIdFirstOrThrowAsync = async ({
   select,
 }: getAccountByUserIdFirstOrThrowProps): Promise<Partial<AccountModel>> =>
   await context.account.findFirstOrThrow({
-    where: { userId: userId, providerId: "discord" },
+    where: {
+      userId: userId,
+      providerId: "discord",
+    },
     select: { ...select },
   })

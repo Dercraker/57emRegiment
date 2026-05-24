@@ -1,7 +1,7 @@
 import { User } from "@/lib/auth/auth"
 import { AuthError, GetRequiredUser } from "@/lib/auth/authHelper"
 import { serverLogger } from "@/lib/logger"
-import { validateUserIsSuperAdminOrThrow } from "@/services/roles/rolesHelper"
+import { ValidateCurrentIsSuperAdminOrThrow } from "@/services/roles/rolesHelper"
 import { createSafeActionClient } from "next-safe-action"
 
 export class ActionError extends Error {}
@@ -39,11 +39,11 @@ export const authAction = createSafeActionClient({
     },
   })
 })
-
 export const superAdminAction = createSafeActionClient({
   handleServerError,
 }).use(async ({ next }) => {
-  const user = await validateUserIsSuperAdminOrThrow()
+  const user = await ValidateCurrentIsSuperAdminOrThrow()
+
   return next({
     ctx: {
       user: user satisfies User,
