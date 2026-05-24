@@ -88,11 +88,21 @@ const GeneratedNavigationLinksGroups = z.array(GeneratedNavigationLinksGroup)
 
 //#region Type Exports
 
-export type GeneratedNavigationLink = z.infer<typeof GeneratedNavigationLinkSchema>
-export type GeneratedNavigationLinks = z.infer<typeof GeneratedNavigationLinksSchema>
-export type GeneratedGenericLinkSchema = z.infer<typeof GeneratedGenericLinkSchema>
-export type GeneratedNavigationLinksGroup = z.infer<typeof GeneratedNavigationLinksGroup>
-export type GeneratedNavigationLinksGroups = z.infer<typeof GeneratedNavigationLinksGroups>
+export type GeneratedNavigationLink = z.infer<
+  typeof GeneratedNavigationLinkSchema
+>
+export type GeneratedNavigationLinks = z.infer<
+  typeof GeneratedNavigationLinksSchema
+>
+export type GeneratedGenericLinkSchema = z.infer<
+  typeof GeneratedGenericLinkSchema
+>
+export type GeneratedNavigationLinksGroup = z.infer<
+  typeof GeneratedNavigationLinksGroup
+>
+export type GeneratedNavigationLinksGroups = z.infer<
+  typeof GeneratedNavigationLinksGroups
+>
 
 //#endregion Type Exports
 
