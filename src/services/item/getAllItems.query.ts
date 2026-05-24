@@ -1,11 +1,11 @@
 import context from "@/lib/prisma/dbContext"
-import { ItemsFIlter } from "@/models/stock/items.schema"
+import { ItemsFilter } from "@/models/stock/items.schema"
 import { ItemModel } from "prisma/generated/models"
 
 export const getAllItemsAsync = async ({
   category,
   faction,
-}: ItemsFIlter): Promise<ItemModel[]> => {
+}: ItemsFilter): Promise<ItemModel[]> => {
   const allItems = await context.item.findMany({
     where: {
       ...(category && { category }),

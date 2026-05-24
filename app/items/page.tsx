@@ -1,9 +1,8 @@
-import { ItemsFIlter } from "@/models/stock/items.schema"
+import { ItemsFilter } from "@/models/stock/items.schema"
 import { GetAllItemsAction } from "@/services/item/getAllItems.action"
 
 export default async function ItemsPage({ searchParams }: PageProps<"/items">) {
-    const params = await searchParams as ItemsFIlter
-    console.log(params)
+    const params = await searchParams as ItemsFilter
     const result = await GetAllItemsAction(params)
     if (result?.serverError)
         return <p>erreur:{result.serverError}</p>
