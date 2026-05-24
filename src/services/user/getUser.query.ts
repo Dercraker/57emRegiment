@@ -1,4 +1,4 @@
-import { context } from "@/lib/prisma/dbContext"
+import context from "@/lib/prisma/dbContext"
 import { UserModel } from "prisma/generated/models"
 
 type getUserByIdQueryProps = {

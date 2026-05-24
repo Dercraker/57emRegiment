@@ -13,11 +13,12 @@ export const GetAllUserAction = authAction.action(async ({}) => {
   }
 })
 
-export const GetAllUserWithPostAction = authAction.action(async ({}) => {
-  try {
-    return await getAllUserWithPostsAsync()
-  } catch (error) {
-    serverLogger.error("Error getting files:", error)
-    throw new Error("Failed to get files")
-  }
-})
+//Sample
+// export const GetAllUserWithPostAction = authAction.action(async ({}) => {
+//   try {
+//     return await getAllUserWithPostsAsync()
+//   } catch (error) {
+//     serverLogger.error("Error getting files:", error)
+//     throw new Error("Failed to get files")
+//   }
+// })

@@ -1,4 +1,4 @@
-import { AuthError, GetRequiredUser } from "@/lib/auth/helper"
+import { AuthError, GetRequiredUser } from "@/lib/auth/authHelper"
 import { serverLogger } from "@/lib/logger"
 import {} from "@prisma/client"
 import { createSafeActionClient } from "next-safe-action"
