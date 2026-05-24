@@ -1,6 +1,4 @@
-import { DiscordSnowflakeSchema } from "@/models/discord/discordSnowflake.schema"
-import { datetime } from "node_modules/zod/v4/core/regexes.cjs"
-import z, { string } from "zod"
+import z from "zod"
 export const CategoryEnum = z.enum([
   "SMALL_ARMS",
   "HEAVY_ARMS",
@@ -22,7 +20,7 @@ export const ItemsFilterSchema = z.object({
 export const SuperClassEnum = z.enum(["MATERIAL", "MAGAZINE"])
 export const ClassEnum = z.enum(["REFINED_MATERIAL", "RIFLE_AMMO"])
 
-export const ItemSchema = z.object({
+export const ItemCreateSchema = z.object({
   name: z.string(),
   shortname: z.string().optional(),
   category: CategoryEnum,
@@ -35,6 +33,17 @@ export const ItemSchema = z.object({
   attributes: z.record(z.string(), z.any()).optional(),
 })
 
+export const ItemIdSchema = z.object({
+  id: z.uuid(),
+})
+
+export const ItemUpdateSchema = z.object({
+  id: ItemIdSchema,
+  item: ItemCreateSchema,
+})
+
 export type ItemsFilter = z.infer<typeof ItemsFilterSchema>
 export type FactionFilter = z.infer<typeof FactionEnum>
-export type ItemCreate = z.infer<typeof ItemSchema>
+export type ItemCreate = z.infer<typeof ItemCreateSchema>
+export type ItemId = z.infer<typeof ItemIdSchema>
+export type ItemUpdate = z.infer<typeof ItemUpdateSchema>
