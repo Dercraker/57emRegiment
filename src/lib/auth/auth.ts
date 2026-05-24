@@ -6,7 +6,7 @@ import { getAccountByUserIdFirstOrThrowAsync } from "@/services/account/getAccou
 import {
   fetchDiscordMemberRoles,
   refreshDiscordAccessToken,
-} from "@/services/discord/discordClient.api"
+} from "@/services/discord/discordApi.api"
 import { deleteAllSessionByUserIdAsync } from "@/services/sessions/deleteSession.query"
 import { updateAccountByUserIdAsync } from "@/services/sessions/updateAccount.query"
 import { isDisabledUserAsync } from "@/services/user/isDisabledUser.query"

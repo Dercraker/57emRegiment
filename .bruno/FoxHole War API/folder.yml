@@ -1,0 +1,7 @@
+info:
+  name: FoxHole War API
+  type: folder
+  seq: 2
+
+request:
+  auth: inherit

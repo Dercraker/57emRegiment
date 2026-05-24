@@ -1,0 +1,38 @@
+info:
+  name: ResfreshAcessTokenWithRefreshToken
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{process.env.DISCORD_API_BASE}}/oauth2/token?grant_type=refresh_token&refresh_token={{REFRESH_TOKEN}}&client_id={{process.env.DISCORD_CLIENT_ID}}&client_secret={{process.env.DISCORD_CLIENT_SECRET}}"
+  headers:
+    - name: Content-Type
+      value: application/x-www-form-urlencoded
+  params:
+    - name: grant_type
+      value: refresh_token
+      type: query
+    - name: refresh_token
+      value: "{{REFRESH_TOKEN}}"
+      type: query
+    - name: client_id
+      value: "{{process.env.DISCORD_CLIENT_ID}}"
+      type: query
+    - name: client_secret
+      value: "{{process.env.DISCORD_CLIENT_SECRET}}"
+      type: query
+  body:
+    type: json
+    data: ""
+
+runtime:
+  variables:
+    - name: REFRESH_TOKEN
+      value: bfoHFewn0kzMPNuP1iXe1BaQVjZOE2
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
