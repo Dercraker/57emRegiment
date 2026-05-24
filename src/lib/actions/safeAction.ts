@@ -1,8 +1,8 @@
+import { User } from "@/lib/auth/auth"
 import { AuthError, GetRequiredUser } from "@/lib/auth/authHelper"
 import { serverLogger } from "@/lib/logger"
-import {} from "@prisma/client"
+import { ValidateCurrentIsSuperAdminOrThrow } from "@/services/roles/rolesHelper"
 import { createSafeActionClient } from "next-safe-action"
-import { UserModel } from "prisma/generated/models"
 
 export class ActionError extends Error {}
 
@@ -35,7 +35,18 @@ export const authAction = createSafeActionClient({
 
   return next({
     ctx: {
-      user: user satisfies UserModel,
+      user: user satisfies User,
+    },
+  })
+})
+export const superAdminAction = createSafeActionClient({
+  handleServerError,
+}).use(async ({ next }) => {
+  const user = await ValidateCurrentIsSuperAdminOrThrow()
+
+  return next({
+    ctx: {
+      user: user satisfies User,
     },
   })
 })
