@@ -14,7 +14,10 @@ export const DiscordGuildMemberSchema = z.object({
   flags: z.number().int(),
   pending: z.boolean().optional(),
   permissions: z.string().optional(),
-  communication_disabled_until: z.iso.datetime({ offset: true }).nullable().optional(),
+  communication_disabled_until: z.iso
+    .datetime({ offset: true })
+    .nullable()
+    .optional(),
 })
 
 export type DiscordGuildMember = z.infer<typeof DiscordGuildMemberSchema>

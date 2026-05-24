@@ -1,8 +1,7 @@
+import { User } from "@/lib/auth/auth"
 import { AuthError, GetRequiredUser } from "@/lib/auth/authHelper"
 import { serverLogger } from "@/lib/logger"
-import {} from "@prisma/client"
 import { createSafeActionClient } from "next-safe-action"
-import { UserModel } from "prisma/generated/models"
 
 export class ActionError extends Error {}
 
@@ -35,7 +34,7 @@ export const authAction = createSafeActionClient({
 
   return next({
     ctx: {
-      user: user satisfies UserModel,
+      user: user satisfies User,
     },
   })
 })
